@@ -1,26 +1,96 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --verde-primario: #2E7D52;
+  --verde-claro: #34C97A;
+  --verde-bg: #E8F5EC;
+  --fondo: #F0F5F0;
+  --blanco: #FFFFFF;
+  --texto-primario: #1A3A2A;
+  --texto-secundario: #6B8F71;
+  --texto-gris: #9AB0A0;
+  --morado: #7C6FF7;
+  --naranja: #F5A623;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Evitamos que la página se mueva hacia los lados en celulares */
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden; 
+  width: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto-primario);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ======================================================
+   📱 MAGIA RESPONSIVA PARA TELÉFONOS
+   ====================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. Reducir paddings gigantes para aprovechar la pantalla del celular */
+  section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* 2. Ajustar la caja verde de "Propósito" para que no se desborde */
+  #proposito > div {
+    padding: 40px 20px !important;
+    border-radius: 24px !important;
+  }
+
+  /* 3. Footer: Centrar todos los elementos y apilarlos verticalmente */
+  footer > div {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 32px !important;
+  }
+  
+  /* Centrar los links y logo del Footer */
+  footer > div > div {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* 4. Botones de acción: Hacer que ocupen todo el ancho (más fáciles de tocar) */
+  section a[href^="#"] {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* 5. Estadísticas del Hero: Apilarlas en columna en lugar de fila */
+  div[style*="marginTop: 64px"] {
+    flex-direction: column !important;
+    gap: 32px !important;
+    margin-top: 40px !important;
+  }
+
+  /* 6. Ajustar el tamaño de los títulos gigantes para que no se corten */
+  h1 {
+    font-size: 2.5rem !important; 
+  }
+  h2 {
+    font-size: 2rem !important; 
+  }
+  p {
+    font-size: 1rem !important;
+  }
 }
