@@ -76,7 +76,8 @@ export default function Hero() {
           
           {/* AQUÍ FALTABA ABRIR LA ETIQUETA <a */}
           <a 
-            href="#descargar"
+            href="/ergohabit.apk"
+            download="ErgoHabit.apk"
             style={{
               padding: '16px 32px',
               backgroundColor: '#2E7D52',

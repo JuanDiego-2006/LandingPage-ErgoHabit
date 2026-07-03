@@ -1,3 +1,6 @@
+'use client'
+import React from 'react'
+
 export default function Download() {
   return (
     <section id="descargar" style={{
@@ -63,8 +66,9 @@ export default function Download() {
 
           {/* Botón descarga */}
           <div>
-            <button
-              disabled
+            <a
+              href="/ergohabit.apk"
+              download="ErgoHabit.apk"
               style={{
                 padding: '18px 40px',
                 backgroundColor: 'white',
@@ -73,22 +77,31 @@ export default function Download() {
                 fontSize: '16px',
                 fontWeight: 700,
                 border: 'none',
-                cursor: 'not-allowed',
-                opacity: 0.9,
+                cursor: 'pointer',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '10px',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.15)',
+                textDecoration: 'none',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+              }}
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.2)'
+              }}
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.15)'
               }}
             >
               📱 Descargar para Android
-            </button>
+            </a>
             <p style={{
               marginTop: '12px',
               fontSize: '12px',
               color: 'rgba(255,255,255,0.5)',
             }}>
-              Próximamente disponible — en desarrollo
+              Versión beta · Android 8.0 o superior
             </p>
           </div>
 

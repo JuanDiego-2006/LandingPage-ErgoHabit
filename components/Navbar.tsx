@@ -82,7 +82,8 @@ export default function Navbar() {
           })}
           
           <a 
-            href="#descargar"
+            href="/ergohabit.apk"
+            download="ErgoHabit.apk"
             style={{
               padding: '10px 20px',
               backgroundColor: '#2E7D52',
@@ -152,8 +153,9 @@ export default function Navbar() {
             );
           })}
           <a 
-            href="#descargar"
-            onClick={() => setOpen(false)} // Cierra el menú al tocar
+            href="/ergohabit.apk"
+            download="ErgoHabit.apk"
+            onClick={() => setOpen(false)}
             style={{
               padding: '14px 20px',
               backgroundColor: '#2E7D52',
